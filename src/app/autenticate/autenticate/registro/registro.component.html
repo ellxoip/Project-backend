@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registracion form</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="">
+  <form [formGroup]="formulario">
+    <ion-item>
+      <ion-label position="floating">Primer nombre</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Segundo nombre</ion-label>
+      <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Edad</ion-label>
+      <ion-input type="number" formControlName="age"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nickname</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Fecha Nacimiento</ion-label>
+      <ion-input type="date" formControlName="birthDate"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="left">Gender</ion-label>
+      <ion-select formControlName="gender">
+        <ion-select-option value="male">Hombre</ion-select-option>
+        <ion-select-option value="female">Mujer</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </form><br>
+  <ion-label color="red" *ngIf="!formulario.valid && formulario.touched"> inserte un dato valido</ion-label>
+  <ion-button *ngIf="formulario.valid" expand="" (click)="enviar()">Salir</ion-button><br><br>
+  <ion-item>
+    <ion-label>esta suscrito? </ion-label>
+    <ion-button (click)="loginMode()">Log in</ion-button>
+  </ion-item>
+</ion-content>

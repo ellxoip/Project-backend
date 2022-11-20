@@ -1,0 +1,30 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeMd="5" offsetMd="5">
+        <ion-slides>
+          <ion-slide *ngFor="let x of p.images" >
+            <ion-img [src]="x"></ion-img>
+          </ion-slide>
+        </ion-slides>
+        <ion-text>{{p.brand}}</ion-text>
+        <ion-title>{{p.title}}</ion-title><br>
+        <ion-label>$ {{p.price}} ({{p.discountPercentage}}% OFF)</ion-label><br>
+
+          <ion-item>
+            <ion-label>Contar:</ion-label>
+            <form [formGroup]="formuly">
+            <ion-input type="number" formControlName="cantidad"></ion-input>
+            </form>
+            <ion-button (click)="movement()" [disabled]="!formuly.valid">Añadir al carrito</ion-button>
+          </ion-item>
+
+        <ion-label>Category: {{p.category}}</ion-label><br>
+        <ion-label>Rating: {{p.rating}}</ion-label><br>
+        <ion-text>{{p.description}}</ion-text>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+</ion-content>

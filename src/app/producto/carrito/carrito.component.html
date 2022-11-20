@@ -1,0 +1,28 @@
+<ion-col sizeMd="5" offsetMd="5">
+  <ion-slides>
+    <ion-slide *ngFor="let x of p.carts" >
+      <ion-item *ngFor="let y of x.products">
+        <ion-img [src]="y.thumbnail"
+        width="30%"></ion-img>
+        <ion-title>{{y.title}}
+
+        </ion-title>
+        <ion-label> $ {{y.price}}</ion-label>
+        <ion-text>- {{y.discountPercentage}}%</ion-text>
+      </ion-item>
+      <ion-label>Total carrito: {{p.total}}
+
+      </ion-label>
+      <ion-title>Total: $ {{x.total}}
+
+      </ion-title>
+    </ion-slide>
+  </ion-slides>
+  <ion-label>Contar:</ion-label>
+  <form [formGroup]="formuly">
+    <ion-input type="number" formControlName="cantidad"></ion-input>
+  </form>
+  <ion-button (click)="carrier()" [disabled]="!formuly.valid">Comprar</ion-button>
+  <ion-label>Total tkip: {{p.tkip}}</ion-label>
+  <ion-label>limite: {{p.limit}}</ion-label>
+</ion-col>

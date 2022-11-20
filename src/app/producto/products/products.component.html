@@ -1,0 +1,18 @@
+<br><br>
+<ion-title>Productos</ion-title><br>
+<ion-item *ngFor="let prd of prods" (click)="detalles(prd.id)">
+<ion-card >
+  <ion-img [src]="prd.thumbnail" style="width: 100%;"></ion-img>
+  <ion-card-content>
+    <ion-card-title>{{prd.title}}</ion-card-title>
+    <ion-card-subtitle>Rating: {{prd.rating}}</ion-card-subtitle>
+    <ion-card-subtitle>$ {{prd.price}}</ion-card-subtitle>
+    <ion-card-subtitle>{{prd.discountPercentage}}% off</ion-card-subtitle>
+    <ion-card-subtitle>{{prd.description}}</ion-card-subtitle>
+  </ion-card-content>
+</ion-card>
+</ion-item>
+<ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+  <ion-infinite-scroll-content loadingText="Wait a moment..."
+  loadingSpinner="lines-sharp-small"></ion-infinite-scroll-content>
+</ion-infinite-scroll>
